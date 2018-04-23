@@ -1,0 +1,64 @@
+htl_immobilier_homepage:
+    path:     /
+    defaults: { _controller: HTLImmobilierBundle:Default:index }
+
+search:
+    path:     /front/bien/search
+    defaults: { _controller: HTLImmobilierBundle:Front:search }
+
+list:
+    path:     /front/bien/list
+    defaults: { _controller: HTLImmobilierBundle:Front:list }
+
+listypebien:
+    path:     /front/bien/listypebien
+    defaults: { _controller: HTLImmobilierBundle:Front:listypebien }
+
+catalogue:
+    path:     /front/bien/catalogue
+    defaults: { _controller: HTLImmobilierBundle:Front:catalogue }
+
+acceuil:
+    path:     /acceuil
+    defaults: { _controller: HTLImmobilierBundle:Front:acceuil }
+
+
+reservation:
+    path:     /front/bien/reservation/{id}
+    defaults: { _controller: HTLImmobilierBundle:Front:reservation }
+
+
+edit:
+    path:     /front/bien/edit/{id}
+    defaults: { _controller: HTLImmobilierBundle:Front:edit }
+
+
+suppr:
+    path:     /front/bien/suppr/{id}
+    defaults: { _controller: HTLImmobilierBundle:Front:suppr}
+
+
+listreservation:
+    path:     /admin/reservation/list
+    defaults: { _controller: HTLImmobilierBundle:Admin:listreservation }
+
+
+detailsreservation:
+    path:     /admin/reservation/details
+    defaults: { _controller: HTLImmobilierBundle:Admin:detailsreservation }
+
+admin:
+    path:     /admin
+    defaults: { _controller: HTLImmobilierBundle:Admi n:admin }
+
+editer_typebien:
+    path:     /front/bien/listypebien/editer_typebien/{id}
+    defaults: { _controller: HTLImmobilierBundle:Front:editer_typebien }
+
+showProprietaire:
+    path:     /showproprietaire
+    defaults: { _controller: HTLImmobilierBundle:API:showProprietaire }
+
+addproprietaire:
+    path:     /addproprio
+    defaults: { _controller: HTLImmobilierBundle:API:addproprietaire }

@@ -1,0 +1,119 @@
+body{background-image: url('{{ asset("image/fond.png") }}')}
+.container{
+    height: auto;
+}
+.header{
+    text-align: center;
+    border-bottom: 3px solid gray;
+    padding: 0px;
+     color:gray;
+    font-family: 'nettizen';
+}
+.navbar-nav{
+    display: flex;
+    list-style-type: none;
+     flex-wrap: nowrap;
+     margin-left: 50px;
+}
+.nav-item{
+    margin-right: 100px;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: gray;
+}
+.nav-link{
+    text-decoration: none;
+    color:white;
+}
+nav{
+    padding-top: 10px;
+
+}
+.section{
+    height: 420px;
+    border-top: 3px solid gray;
+    border-bottom: 3px solid gray;
+    padding-top: 10px;
+    margin-top: -10px;
+}
+
+.aside{
+    display: flex;flex-wrap: wrap;
+    margin-top: 20px;
+} .aside1{
+    display: flex; flex-wrap: wrap;
+    margin-top: 20px;
+}
+.card-img-top{
+    width: 300px;
+    height: 200px;
+}
+.divfooter{
+    width: auto;
+}
+footer{
+    color: gray;
+    display: flex;            flex-wrap: wrap;
+    border-top: 3px solid gray;
+    border-bottom: 3px solid gray;
+
+    padding: 20px;margin-top: 30px;
+}
+#api{
+    width: 500px;
+    height: 400px;
+}
+.afooter{
+    color: white;
+}
+.btn-default{
+    background-color: gray;
+}
+/*  .recherche{
+    height: 100px;
+    width: 900px;
+    background-color: black;
+    position: absolute;
+    margin-top: -120px;
+    margin-left: 30px;
+   opacity: 0.6;
+}*/
+.imgsection{
+    width: 980px;
+    height: 280px;
+}
+
+input
+{
+    border-radius: 0px;
+}
+.conec{
+box-shadow: 10px 10px    15px;
+margin-left: 250px;
+width: 400px;}
+.entete{
+    background-color: gray;
+    color: white;
+    padding: 4px;
+}
+.div1{
+    border: 2px solid white;padding: 0px;margin-left: 15px;background-color: white;
+}
+.div1:hover{
+    border: 2px solid gray;
+}
+.rech{
+    height: 100px;background-color: black;
+}
+.contacte{
+    height: 40px;display: flex;color: white;background-color: gray;flex-wrap: wrap;
+}
+.liensocial{
+    margin-right: 10px;color: white;
+}
+#social{
+    margin-left: 750px;
+}
+.tel{padding-left: 50px;
+}

@@ -1,0 +1,93 @@
+{% extends '::layoutfront.html.twig' %}
+
+{% block catalogue %}
+    <section class="banner bgwhite p-t-40 p-b-40">
+        
+        <div class="container-fluid">
+            <div class="row">
+                {% for bien in biens %} 
+                <div class="col-sm-10 col-md-8 col-lg-5 m-l-r-auto" >
+                 
+                    <!-- block1 -->
+                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew thumbnail">
+
+                              {% for img in bien.images %}
+                        <img src="{{ asset('images/') }}{{img.image}}" alt="IMG-PRODUCT">
+                                     {% endfor  %}
+                        <div class="block2-overlay trans-0-4">
+                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                            </a>
+                            <div class="block1-wrapbtn w-size2">
+                                <!-- Button -->
+                                <div class="block2-btn-addcart w-size1 trans-0-4">
+                                    <!-- Button -->
+                                    <a class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 text-white" href="{{path('reservation',{id: bien.id})}}">
+                                        Réserver
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block2-txt p-t-20">
+                        <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                    {{bien.typeBien.libelle}}        
+                        </a>
+                     
+                        <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5 ">
+                        </a>
+                           {{bien.localite.libelle}}
+
+
+                        <span class="block2-price m-text6 p-r-5 ">
+                            {{bien.prixLocation}}
+                        </span>
+                      
+                    </div>
+                    
+                </div>
+                    
+                {% else %}
+                    
+                    <h1>Aucun Bien disponible</h1>
+              
+                {% endfor %}
+              
+
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+
+
+
+{% block imgvendre %}
+		
+
+		   {% for bien in biens %}
+	<div class="block4 wrap-pic-w block2-labelsale  thumbnail">
+                            {% for img in bien.images %}
+				<img src="{{ asset('images/') }}{{img.image}}" alt="IMG-INSTAGRAM">
+                                    {% endfor  %}
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">{{bien.typeBien.libelle}} <br> {{bien.localite.libelle}}</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+                                {{bien.description}}						</p>
+
+						<span class="s-text9">
+							 {{bien.prixLocation}}
+						</span>
+					</div>
+				</a>
+			</div>
+            {% endfor  %}
+              {% endblock %}
+

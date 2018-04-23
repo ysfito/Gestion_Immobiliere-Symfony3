@@ -1,0 +1,169 @@
+<?php
+
+namespace HTL\ImmobilierBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Reservation
+ *
+ * @ORM\Table(name="reservation")
+ * @ORM\Entity(repositoryClass="HTL\ImmobilierBundle\Repository\ReservationRepository")
+ */
+class Reservation
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateReservation", type="date")
+     */
+    private $dateReservation;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="etat", type="boolean")
+     */
+    private $etat;
+
+
+    /**
+
+    * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Bien")
+
+    * @ORM\JoinColumn(nullable=false)
+
+    */
+
+    private $bien;
+
+    /**
+
+    * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Client", cascade = {"persist"})
+
+    * @ORM\JoinColumn(nullable=false, referencedColumnName="id")
+
+    */
+
+    private $client;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set dateReservation
+     *
+     * @param \DateTime $dateReservation
+     *
+     * @return Reservation
+     */
+    public function setDateReservation($dateReservation)
+    {
+        $this->dateReservation = $dateReservation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateReservation
+     *
+     * @return \DateTime
+     */
+    public function getDateReservation()
+    {
+        return $this->dateReservation;
+    }
+
+    /**
+     * Set etat
+     *
+     * @param boolean $etat
+     *
+     * @return Reservation
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return bool
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * Set bien
+     *
+     * @param \HTL\ImmobilierBundle\Entity\Bien $bien
+     *
+     * @return Reservation
+     */
+    public function setBien( $bien)
+    {
+        $this->bien = $bien;
+
+        return $this;
+    }
+
+    /**
+     * Get bien
+     *
+     * @return \HTL\ImmobilierBundle\Entity\Bien
+     */
+    public function getBien()
+    {
+        return $this->bien;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \HTL\ImmobilierBundle\Entity\Client $client
+     *
+     * @return Reservation
+     */
+    public function setClient( $client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \HTL\ImmobilierBundle\Entity\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+    
+    public function __toString()
+     {
+    return 'any string';
+     }
+}

@@ -1,0 +1,68 @@
+{% extends '::layoutfront.html.twig' %}
+
+{% block catalogue %}
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+    <div class="container">
+        <table id="table_id" class="table table-striped bg-danger">
+            <thead>
+                <tr>
+
+
+
+
+
+
+
+                    <th>#</th>
+                    <th>libelle du Bien</th>
+                    <th>Editer</th>
+                    <td>Supprimer</td>
+
+                </tr>
+            </thead>
+            {% for type in types %}
+                <tbody>
+                    <tr>
+                        <td scope="row">{{type.id}}</td>
+                        <td><span class="tdedit">{{type.libelle}}</span><input type="text" class="aetditer" name="libelle" value="{{type.libelle}}"></td>
+                        <td><a class="editer" href="{{path('editer_typebien',{'id':type.id})}}" name="deti"> Editer</a></td>
+                        <td><a name="supprimer" href="{{path('suppr',{'id':type.id})}}"> Supprimer </a></td>
+                    </tr>
+
+                    {% else %}
+                    <td colspan="6">Aucun utilisateur</td>
+            </tbody>
+            {% endfor %}
+        </table>
+</div>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('.aetditer').hide();
+            
+          // $('#table_id').DataTable();
+            
+            
+            
+        $('.editer').on('click',function(){
+            $('.tdedit').hide();
+            $('.aetditer').show();
+            
+
+        })
+        } );
+        
+        
+    </script>
+{% endblock %}
+
+

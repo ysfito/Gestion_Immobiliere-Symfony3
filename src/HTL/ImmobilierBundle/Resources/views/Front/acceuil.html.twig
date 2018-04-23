@@ -1,0 +1,10 @@
+{% extends '::layoutfront.html.twig' %}
+
+
+{% block catalogue%}
+    
+    {% embed "HTLImmobilierBundle:Front:catalogue.html.twig" %} 
+        {#  tout comme inclure et extend  embed permet a la fois d'inclure des vu et de modifer les différent blocks #}
+    {% endembed %}
+    
+{% endblock%}

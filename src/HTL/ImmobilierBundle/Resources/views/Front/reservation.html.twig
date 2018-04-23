@@ -1,0 +1,201 @@
+{% extends '::layoutfront.html.twig'%}
+
+{% block slide %}
+ <div class="container-fluid" style="display:flex">
+     <section>
+     <div class="row">
+                 {% for bien in biens %}
+                     <div class="col-sm-10 col-md-8 col-lg-12 m-l-r-auto" style="margin-left:-5px">
+                 
+                    <!-- block1 -->
+                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew thumbnail" >
+                                
+                                            {% for img in bien.image %}
+                        <img src="{{ asset('images/')}}{{img.image}}" alt="IMG-PRODUCT">
+                                                 {% endfor  %}
+
+                        <div class="block2-overlay trans-0-4">
+                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                            </a>
+                            <div class="block1-wrapbtn w-size2">
+                                <!-- Button -->
+                                <div class="block2-btn-addcart w-size1 trans-0-4">
+                                    <!-- Button -->
+        
+                                    <button class="btn flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 text-white " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                       Reserver
+                                    </button>
+                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block2-txt p-t-20">
+                        <p href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                             {{ bien.typeBien.libelle }}  <br>  
+                             {{bien.description}} <br> 
+                              {{bien.localite.libelle}} <br>
+                              {{bien.prixLocation}}
+                        </p>
+                    </div>
+               
+                </div>
+                 {% endfor %}
+     </div>
+     </section>
+     
+     <section>
+     <div class="collapse" id="collapseExample">
+         <div class="card card-body">
+             <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+             <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+             <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+             <!------ Include the above in your HEAD tag ---------->
+             <div class="container" style="">
+
+        {# Connexion #}    
+                 <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3  col-sm-8 col-sm-offset-2">                    
+                     <div class="panel panel-info" >
+                         <div class="panel-heading">
+                             <div class="panel-title">Connexion</div>
+                         </div>     
+                        <input type="hidden" class="form-control" name="idbien" placeholder="" value="{{biens[0].id}}" >
+
+
+                         <div style="padding-top:30px" class="panel-body" >
+
+                             <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                             <form id="loginform" class="form-horizontal" role="form" method="post">
+
+                                 <div style="margin-bottom: 25px" class="input-group">
+                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                     <input id="login-username" type="email" class="form-control" name="email" placeholder="email">                                        
+                                 </div>
+
+                                 <div style="margin-bottom: 25px" class="input-group">
+                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                     <input id="login-password" type="password" class="form-control" name="password" placeholder="Mot de Passe">
+                                 </div>
+
+
+                                 <div style="margin-top:10px" class="form-group">
+                                     <!-- Button -->
+                                     
+                                     <div class="col-sm-12 controls">
+                                         <button type="submit" id="btn-login" href="#" name="connexion" class="btn btn-success">S'identifier  </button>
+                                         
+                                     </div>
+                                 </div>
+
+
+                                 <div class="form-group">
+                                     <div class="col-md-12 control">
+                                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                             Vous n'Avez pas de compte! 
+                                             <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                                 Connecter-vous ici!
+                                             </a>
+                                         </div>
+                                     </div>
+                                 </div>    
+                             </form>     
+
+
+
+                         </div>                     
+                     </div>  
+                 </div>
+     {# Inscription #}            
+                 <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                     <div class="panel panel-info">
+                         <div class="panel-heading">
+                             <div class="panel-title">Inscription</div>
+                             <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Connexion</a></div>
+                         </div>  
+                         
+                         <div class="panel-body" >
+                             <form id="signupform" class="form-horizontal" role="form" method="post">
+
+                                 <div id="signupalert" style="display:none" class="alert alert-danger">
+                                     <p>Error:</p>
+                                     <span></span>
+                                 </div>
+                                         <input type="hidden" class="form-control" name="idbien" placeholder="" value="{{biens[0].id}}" >
+
+
+
+                                 <div class="form-group">
+                                     <label for="email" class="col-md-3 control-label">Email</label>
+                                     <div class="col-md-9">
+                                         <input type="email" class="form-control" name="email" placeholder="Email Address">
+                                     </div>
+                                 </div>
+
+                                 <div class="form-group">
+                                     <label for="firstname" class="col-md-3 control-label">Prenom et Nom</label>
+                                     <div class="col-md-9">
+                                         <input type="text" class="form-control" name="nomcomplet" placeholder="Prenom">
+                                     </div>
+                                 </div>
+                                 
+                                 
+                                 <div class="form-group">
+                                     <label for="firstname" class="col-md-3 control-label">Adresse</label>
+                                     <div class="col-md-9">
+                                         <input type="text" class="form-control" name="adresse" placeholder="Prenom">
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="form-group">
+                                     <label for="lastname" class="col-md-3 control-label">Téléphone</label>
+                                     <div class="col-md-9">
+                                         <input type="number" class="form-control" name="tel" placeholder="Nom">
+                                     </div>
+                                 </div>
+                                 
+
+                                 <div class="form-group">
+                                     <label for="lastname" class="col-md-3 control-label">Num Piece</label>
+                                     <div class="col-md-9">
+                                         <input type="number" class="form-control" name="numpiece" placeholder="Nom">
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="form-group">
+                                     <label for="password" class="col-md-3 control-label">Mot de Passe</label>
+                                     <div class="col-md-9">
+                                         <input type="password" class="form-control" name="password" placeholder="Mot de Passe">
+                                     </div>
+                                 </div>
+
+                                 
+
+                                 <div class="form-group">
+                                     <!-- Button -->                                        
+                                     <div class="col-md-offset-3 col-md-9">
+                                         <button id="btn-signup" type="submit" class="btn btn-info" name="inscription"><i class="icon-hand-right"></i> &nbsp S'inscrire</button>
+                                     </div>
+                                 </div>
+
+                             </form>
+                         </div>
+                     </div>
+
+
+
+
+                 </div> 
+         </div>
+     </div>
+     </section>
+     
+    </div>
+
+    
+{% endblock %}
+
+
+
